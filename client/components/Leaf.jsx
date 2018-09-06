@@ -4,17 +4,22 @@ export default class Leaf extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      x: this.props.x,
-      y: this.props.y
+      styles: this.props.styles,
+      img: this.props.img,
+      id: this.props.id
     }
   }
 
   render(){
-    return (
-      <React.Fragment>
-        <img src="/leaf.svg" alt="leaf"/>
-        {console.log("leafrender")}
-      </React.Fragment>
-    )
+    if(this.props.id){
+      return (
+        <React.Fragment>
+          <img id={this.state.id} src={this.state.img} alt="leaf" style={this.props.styles}/>
+          {console.log(this.state.id)}
+        </React.Fragment>
+      )
+    } else {
+        return null
+    }
   }
 }

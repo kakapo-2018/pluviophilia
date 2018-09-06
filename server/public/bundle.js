@@ -20404,11 +20404,77 @@ var App = function (_React$Component) {
 
     _this.state = {
       leaves: [{
-        x: 10,
-        y: 10
+        styles: {
+          position: "absolute",
+          left: 34,
+          top: 9,
+          transform: "rotate(" + 0 + "deg)",
+          width: "300px"
+        },
+        imgSrc: '/leaf.svg'
       }, {
-        x: 50,
-        y: 50
+        styles: {
+          position: "absolute",
+          left: 500,
+          top: 9,
+          transform: "rotate(" + 80 + "deg)",
+          width: "300px"
+        },
+        imgSrc: '/leaf.svg'
+      }, {
+        styles: {
+          position: "absolute",
+          left: 1055,
+          top: 9,
+          transform: "rotate(" + 74 + "deg)",
+          width: "300px"
+        },
+        imgSrc: '/leaf.svg'
+      }, {
+        styles: {
+          position: "absolute",
+          left: 1500,
+          top: 13,
+          transform: "rotate(" + 74 + "deg)",
+          width: "300px"
+        },
+        imgSrc: '/leaf.svg'
+      }, {
+        styles: {
+          position: "absolute",
+          left: 105,
+          top: 602,
+          transform: "rotate(" + 0 + "deg)",
+          width: "300px"
+        },
+        imgSrc: '/bush.svg'
+      }, {
+        styles: {
+          position: "absolute",
+          left: 532,
+          top: 602,
+          transform: "rotate(" + 323 + "deg)",
+          width: "300px"
+        },
+        imgSrc: '/bush.svg'
+      }, {
+        styles: {
+          position: "absolute",
+          left: 1145,
+          top: 602,
+          transform: "rotate(" + 357 + "deg)",
+          width: "300px"
+        },
+        imgSrc: '/bush.svg'
+      }, {
+        styles: {
+          position: "absolute",
+          left: 1582,
+          top: 602,
+          transform: "rotate(" + 349 + "deg)",
+          width: "300px"
+        },
+        imgSrc: '/bush.svg'
       }]
     };
     return _this;
@@ -20417,15 +20483,13 @@ var App = function (_React$Component) {
   _createClass(App, [{
     key: 'render',
     value: function render() {
-      var _this2 = this;
-
       var k = -1;
       return _react2.default.createElement(
         _react2.default.Fragment,
         null,
         this.state.leaves.map(function (leaf) {
           k++;
-          return _react2.default.createElement(_Leaf2.default, { key: k, x: leaf.x, y: leaf.y, ctx: _this2.state.ctx });
+          return _react2.default.createElement(_Leaf2.default, { key: k, id: "leaf" + k, styles: leaf.styles, img: leaf.imgSrc });
         })
       );
     }
@@ -20470,8 +20534,9 @@ var Leaf = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Leaf.__proto__ || Object.getPrototypeOf(Leaf)).call(this, props));
 
     _this.state = {
-      x: _this.props.x,
-      y: _this.props.y
+      styles: _this.props.styles,
+      img: _this.props.img,
+      id: _this.props.id
     };
     return _this;
   }
@@ -20479,12 +20544,16 @@ var Leaf = function (_React$Component) {
   _createClass(Leaf, [{
     key: "render",
     value: function render() {
-      return _react2.default.createElement(
-        _react2.default.Fragment,
-        null,
-        _react2.default.createElement("img", { src: "/leaf.svg", alt: "leaf" }),
-        console.log("leafrender")
-      );
+      if (this.props.id) {
+        return _react2.default.createElement(
+          _react2.default.Fragment,
+          null,
+          _react2.default.createElement("img", { id: this.state.id, src: this.state.img, alt: "leaf", style: this.props.styles }),
+          console.log(this.state.id)
+        );
+      } else {
+        return null;
+      }
     }
   }]);
 
