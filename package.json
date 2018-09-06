@@ -9,7 +9,8 @@
   "scripts": {
     "start": "webpack && node server",
     "dev": "node server & webpack --watch",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "knex": "knex"
   },
   "babel": {
     "presets": [
@@ -26,7 +27,9 @@
     ]
   },
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "knex": "^0.15.2",
+    "sqlite3": "^4.0.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -37,6 +40,7 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^22.1.4",
+    "knex": "^0.15.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "webpack": "^3.10.0",
