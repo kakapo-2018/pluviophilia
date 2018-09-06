@@ -1,18 +1,15 @@
 body {
     background-color: #84d7fd;
     background-image: url('background.svg');
-    width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     font-family: 'Montserrat', sans-serif;
-    
-  }
+}
   
-  div.app {
+div.app {
     width: 1000px;
     justify-content: space-evenly;
     align-items: center;
     height: 100px;
-    
-  }
+}
