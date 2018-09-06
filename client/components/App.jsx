@@ -1,5 +1,5 @@
 import React from 'react'
-//import Leaf from './Leaf'
+import Leaf from './Leaf'
 
 class App extends React.Component {
   constructor(props){
@@ -11,8 +11,8 @@ class App extends React.Component {
           y: 10
         },
         {
-          x: 50,
-          y: 50
+          x: 500,
+          y: 500
         }
       ]
     }
@@ -25,21 +25,28 @@ class App extends React.Component {
 
   updateCanvas(){
     const ctx = this.refs.canvas.getContext('2d');
-    this.setState = {
+    this.setState({
       ctx: ctx
-    }
+    })
   }
   render() {
     console.log(this.state.ctx)
-    return (
-      <React.Fragment>
-        
-      <canvas ref="canvas" width="1920" height="1080"></canvas>
-      {this.state.leaves.map(leaf => {
-        return <h1>fuuuuuuuuu</h1>
-      })}
-      </React.Fragment>
-    )
+    if (this.state.ctx) {
+      console.log("truthy")
+      return (
+        <React.Fragment>
+          <canvas ref="canvas" width="1920" height="1080"></canvas>
+          {this.state.leaves.map(leaf => {
+            return <Leaf x={leaf.x} y={leaf.y} ctx={this.state.ctx}/>
+          })}
+        </React.Fragment>
+      )
+    }
+    else {
+      console.log("falsy")
+      return (<canvas ref="canvas" width="1920" height="1080"></canvas>)
+      //return null
+    }
   }
 }
 

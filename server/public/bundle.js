@@ -258,6 +258,21 @@ process.umask = function() { return 0; };
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(13);
+} else {
+  module.exports = __webpack_require__(14);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 
 
 /**
@@ -294,21 +309,6 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(13);
-} else {
-  module.exports = __webpack_require__(14);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 3 */
@@ -506,7 +506,7 @@ module.exports = emptyObject;
 
 
 
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -861,7 +861,7 @@ module.exports = containsNode;
 "use strict";
 
 
-var _react = __webpack_require__(2);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -893,7 +893,7 @@ document.addEventListener('DOMContentLoaded', function () {
  * LICENSE file in the root directory of this source tree.
  */
 
-var k=__webpack_require__(3),n=__webpack_require__(4),p=__webpack_require__(5),q=__webpack_require__(1),r="function"===typeof Symbol&&Symbol.for,t=r?Symbol.for("react.element"):60103,u=r?Symbol.for("react.portal"):60106,v=r?Symbol.for("react.fragment"):60107,w=r?Symbol.for("react.strict_mode"):60108,x=r?Symbol.for("react.profiler"):60114,y=r?Symbol.for("react.provider"):60109,z=r?Symbol.for("react.context"):60110,A=r?Symbol.for("react.async_mode"):60111,B=
+var k=__webpack_require__(3),n=__webpack_require__(4),p=__webpack_require__(5),q=__webpack_require__(2),r="function"===typeof Symbol&&Symbol.for,t=r?Symbol.for("react.element"):60103,u=r?Symbol.for("react.portal"):60106,v=r?Symbol.for("react.fragment"):60107,w=r?Symbol.for("react.strict_mode"):60108,x=r?Symbol.for("react.profiler"):60114,y=r?Symbol.for("react.provider"):60109,z=r?Symbol.for("react.context"):60110,A=r?Symbol.for("react.async_mode"):60111,B=
 r?Symbol.for("react.forward_ref"):60112;r&&Symbol.for("react.timeout");var C="function"===typeof Symbol&&Symbol.iterator;function D(a){for(var b=arguments.length-1,e="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=0;c<b;c++)e+="&args[]="+encodeURIComponent(arguments[c+1]);n(!1,"Minified React error #"+a+"; visit %s for the full message or use the non-minified dev environment for full errors and additional helpful warnings. ",e)}
 var E={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function F(a,b,e){this.props=a;this.context=b;this.refs=p;this.updater=e||E}F.prototype.isReactComponent={};F.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?D("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};F.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};function G(){}
 G.prototype=F.prototype;function H(a,b,e){this.props=a;this.context=b;this.refs=p;this.updater=e||E}var I=H.prototype=new G;I.constructor=H;k(I,F.prototype);I.isPureReactComponent=!0;var J={current:null},K=Object.prototype.hasOwnProperty,L={key:!0,ref:!0,__self:!0,__source:!0};
@@ -934,7 +934,7 @@ var _assign = __webpack_require__(3);
 var invariant = __webpack_require__(4);
 var emptyObject = __webpack_require__(5);
 var warning = __webpack_require__(6);
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 var checkPropTypes = __webpack_require__(7);
 
 // TODO: this is special because it gets imported during build.
@@ -2484,7 +2484,7 @@ if (process.env.NODE_ENV === 'production') {
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(4),ba=__webpack_require__(2),m=__webpack_require__(8),p=__webpack_require__(3),v=__webpack_require__(1),da=__webpack_require__(9),ea=__webpack_require__(10),fa=__webpack_require__(11),ha=__webpack_require__(5);
+var aa=__webpack_require__(4),ba=__webpack_require__(1),m=__webpack_require__(8),p=__webpack_require__(3),v=__webpack_require__(2),da=__webpack_require__(9),ea=__webpack_require__(10),fa=__webpack_require__(11),ha=__webpack_require__(5);
 function A(a){for(var b=arguments.length-1,c="https://reactjs.org/docs/error-decoder.html?invariant="+a,d=0;d<b;d++)c+="&args[]="+encodeURIComponent(arguments[d+1]);aa(!1,"Minified React error #"+a+"; visit %s for the full message or use the non-minified dev environment for full errors and additional helpful warnings. ",c)}ba?void 0:A("227");
 function ia(a,b,c,d,e,f,g,h,k){this._hasCaughtError=!1;this._caughtError=null;var n=Array.prototype.slice.call(arguments,3);try{b.apply(c,n)}catch(r){this._caughtError=r,this._hasCaughtError=!0}}
 var B={_caughtError:null,_hasCaughtError:!1,_rethrowError:null,_hasRethrowError:!1,invokeGuardedCallback:function(a,b,c,d,e,f,g,h,k){ia.apply(B,arguments)},invokeGuardedCallbackAndCatchFirstError:function(a,b,c,d,e,f,g,h,k){B.invokeGuardedCallback.apply(this,arguments);if(B.hasCaughtError()){var n=B.clearCaughtError();B._hasRethrowError||(B._hasRethrowError=!0,B._rethrowError=n)}},rethrowCaughtError:function(){return ka.apply(B,arguments)},hasCaughtError:function(){return B._hasCaughtError},clearCaughtError:function(){if(B._hasCaughtError){var a=
@@ -2793,11 +2793,11 @@ if (process.env.NODE_ENV !== "production") {
 'use strict';
 
 var invariant = __webpack_require__(4);
-var React = __webpack_require__(2);
+var React = __webpack_require__(1);
 var warning = __webpack_require__(6);
 var ExecutionEnvironment = __webpack_require__(8);
 var _assign = __webpack_require__(3);
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 var checkPropTypes = __webpack_require__(7);
 var getActiveElement = __webpack_require__(9);
 var shallowEqual = __webpack_require__(10);
@@ -20378,9 +20378,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(2);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _Leaf = __webpack_require__(26);
+
+var _Leaf2 = _interopRequireDefault(_Leaf);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20389,8 +20393,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-//import Leaf from './Leaf'
 
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
@@ -20405,8 +20407,8 @@ var App = function (_React$Component) {
         x: 10,
         y: 10
       }, {
-        x: 50,
-        y: 50
+        x: 500,
+        y: 500
       }]
     };
     _this.updateCanvas = _this.updateCanvas.bind(_this);
@@ -20422,26 +20424,31 @@ var App = function (_React$Component) {
     key: 'updateCanvas',
     value: function updateCanvas() {
       var ctx = this.refs.canvas.getContext('2d');
-      this.setState = {
+      this.setState({
         ctx: ctx
-      };
+      });
     }
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       console.log(this.state.ctx);
-      return _react2.default.createElement(
-        _react2.default.Fragment,
-        null,
-        _react2.default.createElement('canvas', { ref: 'canvas', width: '1920', height: '1080' }),
-        this.state.leaves.map(function (leaf) {
-          return _react2.default.createElement(
-            'h1',
-            null,
-            'fuuuuuuuuu'
-          );
-        })
-      );
+      if (this.state.ctx) {
+        console.log("truthy");
+        return _react2.default.createElement(
+          _react2.default.Fragment,
+          null,
+          _react2.default.createElement('canvas', { ref: 'canvas', width: '1920', height: '1080' }),
+          this.state.leaves.map(function (leaf) {
+            return _react2.default.createElement(_Leaf2.default, { x: leaf.x, y: leaf.y, ctx: _this2.state.ctx });
+          })
+        );
+      } else {
+        console.log("falsy");
+        return _react2.default.createElement('canvas', { ref: 'canvas', width: '1920', height: '1080' });
+        //return null
+      }
     }
   }]);
 
@@ -20452,6 +20459,79 @@ exports.default = App;
 
 
 {/* <Leaf x={leaf.x} y={leaf.y} ctx={this.state.ctx}/> */}
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Leaf = function (_React$Component) {
+  _inherits(Leaf, _React$Component);
+
+  function Leaf(props) {
+    _classCallCheck(this, Leaf);
+
+    var _this = _possibleConstructorReturn(this, (Leaf.__proto__ || Object.getPrototypeOf(Leaf)).call(this, props));
+
+    _this.state = {
+      x: _this.props.x,
+      y: _this.props.y,
+      ctx: _this.props.ctx
+    };
+    return _this;
+  }
+
+  _createClass(Leaf, [{
+    key: "render",
+    value: function render() {
+      try {
+        if (this.state.ctx) {
+          console.log(this.state.ctx);
+          return _react2.default.createElement(
+            _react2.default.Fragment,
+            null,
+            this.state.ctx.fillRect(this.state.x, this.state.y, 100, 100),
+            _react2.default.createElement(
+              "h3",
+              null,
+              "fucking rectangles"
+            )
+          );
+        } else {
+          console.log("ctx not defined");
+          return null;
+        }
+      } catch (error) {
+        console.log("I fucking hate react");
+        return null;
+      }
+    }
+  }]);
+
+  return Leaf;
+}(_react2.default.Component);
+
+exports.default = Leaf;
 
 /***/ })
 /******/ ]);
