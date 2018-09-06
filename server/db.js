@@ -2,11 +2,21 @@ const environment = process.env.NODE_ENV || 'development'
 const config = require('../knexfile')[environment]
 const connection = require('knex')(config)
 
-function getMusic
+function getMusic(id, testConn){
+    const conn = testConn || connection
+    return conn('music')
+    .select()
+}
 
 
 
-function getMusicID
+function getMusicID(id, testConn){
+    const conn = testConn || connection
+    return conn('music')
+    .where('id', id)
+    .select()
+    .first()
+}
 
 
 
