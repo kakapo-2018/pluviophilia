@@ -11,8 +11,7 @@
     "dev": "node server & webpack --watch",
     "test": "jest --watchAll",
     "knex": "knex",
-    "postinstall": "knex migrate:latest",
-    "postinstall": "webpack && knex migrate:latest"
+    "postinstall": "webpack && knex migrate:latest && knex seed:run"
   },
   "babel": {
     "presets": [
@@ -32,6 +31,7 @@
   "dependencies": {
     "express": "^4.16.2",
     "knex": "^0.15.2",
+    "pg": "^7.4.3",
     "sqlite3": "^4.0.2",
     "supertest": "^3.3.0",
     "tone": "^0.12.80"

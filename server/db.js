@@ -4,11 +4,11 @@ const connection = require('knex')(config)
 
 function saveSong(song, testConn){
     const conn = testConn || connection
-    
+
     let music = {
         song: song
     }
-    
+
     return conn ('music')
         .insert(music)
 }
@@ -32,4 +32,3 @@ module.exports = {
     getMusicID,
     saveSong
 }
-
