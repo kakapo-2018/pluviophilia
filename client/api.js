@@ -9,10 +9,9 @@ export function saveSong (song, callback) {
     })
 }
 
-export function playSong(music, callback) {
+export function playSong(callback) {
     request.get('api/v1/')
-    .get(music)
     .end((err, res) => {
-        callback(err, res.body)
+        callback(err, res.body.song)
     })
 }

@@ -3,6 +3,7 @@ import Leaf from './Leaf'
 import SaveButton from './SaveButton';
 import PlayButton from './PlayButton';
 import {saveSong as apiSaveSong} from '../api.js'
+import {playSong as apiPlaySong} from '../api.js'
 import Tone from 'tone'
 
 class App extends React.Component {
@@ -130,17 +131,34 @@ class App extends React.Component {
   }
 
   playSong() {
-    let song = JSON.parse(this.state.lastSong)
-    let synth = this.state.synth
-    console.log(song)
-    let intLength = 0
-    let int = setInterval(()=> {
-      console.log(song[intLength])
-      synth.triggerAttackRelease(song[intLength], '8n')
-      intLength++
-      if(intLength > song.length) {clearInterval(int)}
-    }, 1000)
+    apiPlaySong((err, song) => {
+      //let song = JSON.parse(this.state.lastSong)
+      song = JSON.parse(song)
+      let synth = this.state.synth
+      console.log(song)
+      let intLength = 0
+      let int = setInterval(()=> {
+        console.log(song[intLength])
+        synth.triggerAttackRelease(song[intLength], '8n')
+        intLength++
+        if(intLength > song.length) {clearInterval(int)}
+      }, 700)
+    })
   }
+
+  // playSong() {
+  //   apiPlaySong(() => {song =})
+  //   //let song = JSON.parse(this.state.lastSong)
+  //   let synth = this.state.synth
+  //   console.log(song)
+  //   let intLength = 0
+  //   let int = setInterval(()=> {
+  //     console.log(song[intLength])
+  //     synth.triggerAttackRelease(song[intLength], '8n')
+  //     intLength++
+  //     if(intLength > song.length) {clearInterval(int)}
+  //   }, 1000)
+  // }
 
   render() {
       let k = -1
