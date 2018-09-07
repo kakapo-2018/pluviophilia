@@ -5,6 +5,7 @@ class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
+      song: [],
       leaves: [
         {
           styles: {
@@ -14,6 +15,7 @@ class App extends React.Component {
             transform: "rotate(" + 0 + "deg)",
             width: "300px"
           },
+          note: "C4",
           imgSrc: '/leaf.svg'
         },
         {
@@ -24,6 +26,7 @@ class App extends React.Component {
             transform: "rotate(" + 80 + "deg)",
             width: "300px"
           },
+          note: "B4",
           imgSrc: '/leaf.svg'
         },
         {
@@ -34,6 +37,7 @@ class App extends React.Component {
             transform: "rotate(" + 74 + "deg)",
             width: "300px"
           },
+          note: "D4",
           imgSrc: '/leaf.svg'
         },
         {
@@ -44,6 +48,7 @@ class App extends React.Component {
             transform: "rotate(" + 74 + "deg)",
             width: "300px"
           },
+          note: "E4",
           imgSrc: '/leaf.svg'
         },
         {
@@ -54,6 +59,7 @@ class App extends React.Component {
             transform: "rotate(" + 0 + "deg)",
             width: "300px"
           },
+          note: "G4",
           imgSrc: '/bush.svg'
         },
         {
@@ -64,6 +70,7 @@ class App extends React.Component {
             transform: "rotate(" + 323 + "deg)",
             width: "300px"
           },
+          note: "F4",
           imgSrc: '/bush.svg'
         },
         {
@@ -74,6 +81,7 @@ class App extends React.Component {
             transform: "rotate(" + 357 + "deg)",
             width: "300px"
           },
+          note: "A4",
           imgSrc: '/bush.svg'
         },
         {
@@ -84,10 +92,35 @@ class App extends React.Component {
             transform: "rotate(" + 349 + "deg)",
             width: "300px"
           },
+          note: "G3",
           imgSrc: '/bush.svg'
         }
       ]
     }
+    this.addNoteToSong = this.addNoteToSong.bind(this)
+  }
+
+  addNoteToSong(note) {
+    console.log("addNoteToSong: " + note)
+    let song = this.state.song
+    song.push(note)
+    this.setState({
+      song: song
+    })
+    this.playSong(this.state.song)
+  }
+
+  saveSong(){
+    console.log("Saved!")
+    let song = JSON.stringify(this.state.song)
+    this.playSong(song)
+    this.setState({
+      song: []
+    })
+  }
+
+  playSong(song) {
+    console.log(song)
   }
 
   render() {
@@ -96,7 +129,7 @@ class App extends React.Component {
         <React.Fragment>
           {this.state.leaves.map(leaf => {
             k++
-            return <Leaf key={k} id={"leaf" + k} styles={leaf.styles} img={leaf.imgSrc}/>
+            return <Leaf key={k} id={"leaf" + k} styles={leaf.styles} img={leaf.imgSrc} note={leaf.note} addNoteToSong={this.addNoteToSong}/>
           })}
         </React.Fragment>
       )
