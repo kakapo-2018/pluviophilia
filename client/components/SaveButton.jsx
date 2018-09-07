@@ -11,7 +11,7 @@ export default class SaveButton extends React.Component {
   }
   render(){
     return(
-      <svg width="140" height="140" id="save-button">
+      <svg width="140" height="140">
         <circle cx="70" cy="70" r="70" onClick={this.handleClick} fill="darkred"/>
       </svg>
     )

@@ -14,7 +14,7 @@ div.app {
     height: 100px;
 }
 
-#save-button {
+.save-button {
   position: absolute;
   left: 50%;
   bottom: 5%;

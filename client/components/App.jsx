@@ -1,13 +1,17 @@
 import React from 'react'
 import Leaf from './Leaf'
 import SaveButton from './SaveButton';
+import PlayButton from './PlayButton';
 import {saveSong as apiSaveSong} from '../api.js'
+import Tone from 'tone'
 
 class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
       song: [],
+      lastSong: [],
+      synth: new Tone.Synth().toMaster(),
       leaves: [
         {
           styles: {
@@ -101,6 +105,7 @@ class App extends React.Component {
     }
     this.addNoteToSong = this.addNoteToSong.bind(this)
     this.saveSong = this.saveSong.bind(this)
+    this.playSong = this.playSong.bind(this)
   }
 
   addNoteToSong(note) {
@@ -110,34 +115,45 @@ class App extends React.Component {
     this.setState({
       song: song
     })
-    this.playSong(this.state.song)
   }
 
   saveSong(){
     if(this.state.song.length > 0){
       console.log("Saved!")
-      this.playSong(this.state.song)
       let song = {song: JSON.stringify(this.state.song)}
       apiSaveSong(song, () => {})
       this.setState({
-        song: []
+        song: [],
+        lastSong: song.song
       })
     }
   }
 
-  playSong(song) {
+  playSong() {
+    let song = JSON.parse(this.state.lastSong)
+    let synth = this.state.synth
     console.log(song)
+    let intLength = 0
+    let int = setInterval(()=> {
+      console.log(song[intLength])
+      synth.triggerAttackRelease(song[intLength], '8n')
+      intLength++
+      if(intLength > song.length) {clearInterval(int)}
+    }, 1000)
   }
 
   render() {
       let k = -1
       return (
         <React.Fragment>
-          <SaveButton saveSong={this.saveSong}/>
           {this.state.leaves.map(leaf => {
             k++
             return <Leaf key={k} id={"leaf" + k} styles={leaf.styles} img={leaf.imgSrc} note={leaf.note} addNoteToSong={this.addNoteToSong}/>
           })}
+          <div className="save-button">
+            <SaveButton saveSong={this.saveSong}/>
+            <PlayButton playSong={this.playSong}/>
+          </div>
         </React.Fragment>
       )
   }
