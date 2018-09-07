@@ -10,7 +10,9 @@
     "start": "webpack && node server",
     "dev": "node server & webpack --watch",
     "test": "jest --watchAll",
-    "knex": "knex"
+    "knex": "knex",
+    "postinstall": "knex migrate:latest",
+    "postinstall": "webpack && knex migrate:latest"
   },
   "babel": {
     "presets": [
@@ -33,7 +35,6 @@
     "sqlite3": "^4.0.2",
     "supertest": "^3.3.0",
     "tone": "^0.12.80"
-
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
