@@ -13,3 +13,9 @@ div.app {
     align-items: center;
     height: 100px;
 }
+
+#save-button {
+  position: absolute;
+  left: 50%;
+  bottom: 5%;
+}

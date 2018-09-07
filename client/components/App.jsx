@@ -1,5 +1,6 @@
 import React from 'react'
 import Leaf from './Leaf'
+import SaveButton from './SaveButton';
 
 class App extends React.Component {
   constructor(props){
@@ -98,6 +99,7 @@ class App extends React.Component {
       ]
     }
     this.addNoteToSong = this.addNoteToSong.bind(this)
+    this.saveSong = this.saveSong.bind(this)
   }
 
   addNoteToSong(note) {
@@ -111,12 +113,14 @@ class App extends React.Component {
   }
 
   saveSong(){
-    console.log("Saved!")
-    let song = JSON.stringify(this.state.song)
-    this.playSong(song)
-    this.setState({
-      song: []
-    })
+    if(this.state.song.length > 0){
+      console.log("Saved!")
+      let song = JSON.stringify(this.state.song)
+      this.playSong(song)
+      this.setState({
+        song: []
+      })
+    }
   }
 
   playSong(song) {
@@ -127,6 +131,7 @@ class App extends React.Component {
       let k = -1
       return (
         <React.Fragment>
+          <SaveButton saveSong={this.saveSong}/>
           {this.state.leaves.map(leaf => {
             k++
             return <Leaf key={k} id={"leaf" + k} styles={leaf.styles} img={leaf.imgSrc} note={leaf.note} addNoteToSong={this.addNoteToSong}/>
