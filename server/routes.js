@@ -4,7 +4,7 @@ const router = express.Router()
 const db = require('./db')
 
 router.post('/', (req, res) => {
-    db.saveSong(song)
+    db.saveSong(req.body.song)
     .then(ids => {
         res.sendStatus(200)
     })

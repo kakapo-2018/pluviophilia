@@ -1,7 +1,7 @@
 import React from 'react'
 import Leaf from './Leaf'
 import SaveButton from './SaveButton';
-import api from '../api'
+import {saveSong as apiSaveSong} from '../api.js'
 
 class App extends React.Component {
   constructor(props){
@@ -117,8 +117,8 @@ class App extends React.Component {
     if(this.state.song.length > 0){
       console.log("Saved!")
       this.playSong(this.state.song)
-      let song = JSON.stringify(this.state.song)
-      api.saveSong(song)
+      let song = {song: JSON.stringify(this.state.song)}
+      apiSaveSong(song, () => {})
       this.setState({
         song: []
       })

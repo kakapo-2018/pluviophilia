@@ -5,12 +5,12 @@ const connection = require('knex')(config)
 function saveSong(song, testConn){
     const conn = testConn || connection
     
-    let song = {
+    let music = {
         song: song
     }
     
     return conn ('music')
-        .insert(song)
+        .insert(music)
 }
 
 function getMusic(id, testConn){
