@@ -13,18 +13,18 @@ router.post('/', (req, res) => {
     })
 })
 
-router.get('/', function(req, res){
+router.get('/', (req, res) => {
     db.getMusic(req.body)
     .then(music => {
         res.json(music)
     })
 })
 
-router.get('/:id', function(req, res){
-    db.getMusicID(req.params.id)
-    .then(music => {
-        res.json(music)
-    })
-})
+// router.get('/:id', function(req, res){
+//     db.getMusicID(req.params.id)
+//     .then(music => {
+//         res.json(music)
+//     })
+// })
 
 module.exports = router

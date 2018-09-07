@@ -16,20 +16,21 @@ function saveSong(song, testConn){
 function getMusic(id, testConn){
     const conn = testConn || connection
     return conn('music')
+    .orderBy('id', 'desc')
+    .first()
     .select()
 }
 
-function getMusicID(id, testConn){
-    const conn = testConn || connection
-    return conn('music')
-    .where('id', id)
-    .select()
-    .first()
-}
+// function getMusicID(id, testConn){
+//     const conn = testConn || connection
+//     return conn('music')
+//     .where('id', id)
+//     .select()
+//     .first()
+// }
 
 module.exports = {
     getMusic,
-    getMusicID,
     saveSong
 }
 
