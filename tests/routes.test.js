@@ -11,10 +11,10 @@ let request = require('supertest')
 //     ])
 //   }))
 
-test('test the home route', (done) => {
-    request(server).get('/')
-    .end((err, res) => {
-        expect(200)
-        done()
+test('test the home route', () => {
+    return request(server).get('/')
+    .expect(400)
+    .then((res) => {
+
     })
   })
