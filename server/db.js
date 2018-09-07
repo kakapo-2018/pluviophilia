@@ -2,13 +2,22 @@ const environment = process.env.NODE_ENV || 'development'
 const config = require('../knexfile')[environment]
 const connection = require('knex')(config)
 
+function saveSong(song, testConn){
+    const conn = testConn || connection
+    
+    let song = {
+        song: song
+    }
+    
+    return conn ('music')
+        .insert(song)
+}
+
 function getMusic(id, testConn){
     const conn = testConn || connection
     return conn('music')
     .select()
 }
-
-
 
 function getMusicID(id, testConn){
     const conn = testConn || connection
@@ -18,12 +27,9 @@ function getMusicID(id, testConn){
     .first()
 }
 
-
-
-
-
 module.exports = {
     getMusic,
-    getMusicID
+    getMusicID,
+    saveSong
 }
 
