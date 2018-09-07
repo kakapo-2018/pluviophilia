@@ -11,6 +11,7 @@ router.post('/', (req, res) => {
     .catch(err => {
         res.status(500).send('DATABASE ERROR: ' + err.message)
     })
+})
 
 router.get('/', function(req, res){
     db.getMusic(req.body)
